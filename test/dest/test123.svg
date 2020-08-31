@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <font id="test123" horiz-adv-x="24">
+    <font-face font-family="test123"
+      units-per-em="24" ascent="24"
+      descent="0" />
+    <missing-glyph horiz-adv-x="0" />
+    <glyph glyph-name="backup-24px"
+      unicode="&#xEA01;"
+      horiz-adv-x="24" d="M19.35 13.96C18.67 17.41 15.64 20 12 20C9.11 20 6.6 18.36 5.35 15.96C2.34 15.64 0 13.09 0 10C0 6.69 2.69 4 6 4H19C21.76 4 24 6.24 24 9C24 11.64 21.95 13.78 19.35 13.96zM14 11V7H10V11H7L12 16L17 11H14z" />
+    <glyph glyph-name="backup_table-24px"
+      unicode="&#xEA02;"
+      horiz-adv-x="24" d="M20 18V4H6V2H20C21.1 2 22 2.9 22 4V18H20zM16 22H4C2.9 22 2 21.1 2 20V8C2 6.9 2.9 6 4 6H16C17.1 6 18 6.9 18 8V20C18 21.1 17.1 22 16 22zM9 8H4V13H9V8zM16 8H11V13H16V8zM16 15H4V20H16V15z" />
+    <glyph glyph-name="camera_enhance-24px"
+      unicode="&#xEA03;"
+      horiz-adv-x="24" d="M9 21L7.17 19H4C2.9 19 2 18.1 2 17V5C2 3.9 2.9 3 4 3H20C21.1 3 22 3.9 22 5V17C22 18.1 21.1 19 20 19H16.83L15 21H9zM12 6C9.24 6 7 8.24 7 11S9.24 16 12 16S17 13.76 17 11S14.76 6 12 6zM12 7L13.25 9.75L16 11L13.25 12.25L12 15L10.75 12.25L8 11L10.75 9.75z" />
+    <glyph glyph-name="close_fullscreen-24px"
+      unicode="&#xEA04;"
+      horiz-adv-x="24" d="M22 20.59L16.71 15.3L20 12H12V20L15.29 16.71L20.59 22L22 20.59zM3.41 2L8.7 7.29L12 4V12H4L7.29 8.71L2 3.41L3.41 2z" />
+    <glyph glyph-name="disabled_by_default-24px"
+      unicode="&#xEA05;"
+      horiz-adv-x="24" d="M3 21V3H21V21H3zM17 8.41L15.59 7L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z" />
+    <glyph glyph-name="get_app-24px"
+      unicode="&#xEA06;"
+      horiz-adv-x="24" d="M19 15H15V21H9V15H5L12 8L19 15zM5 6V4H19V6H5z" />
+    <glyph glyph-name="hourglass_disabled-24px"
+      unicode="&#xEA07;"
+      horiz-adv-x="24" d="M8 20L16 20L16 16.5L13.16 13.66L14.41 12.41L18 15.99L17.99 16L18 16L18 22L6 22L6 20.83L8 18.83zM2.1 21.9L0.69 20.49L9.59 11.59L6 8L6.01 7.99H6V2H18V3.17L20.49 0.68L21.9 2.09L2.1 21.9zM16 4H8V7.5L10.84 10.34L16 5.17V4z" />
+    <glyph glyph-name="input-24px"
+      unicode="&#xEA08;"
+      horiz-adv-x="24" d="M21 20.99H3C1.9 20.99 1 20.09 1 18.99V15H3V19.01H21V4.98H3V9H1V4.99C1 3.89 1.9 3.01 3 3.01H21C22.1 3.01 23 3.89 23 4.99V18.99C23 20.1 22.1 20.99 21 20.99zM11 8L15 12L11 16V13H1V11H11V8z" />
+    <glyph glyph-name="integration_instructions-24px"
+      unicode="&#xEA09;"
+      horiz-adv-x="24" d="M19 21H14.82C14.4 22.16 13.3 23 12 23S9.6 22.16 9.18 21H5C4.86 21 4.73 20.99 4.6 20.96C4.21 20.88 3.86 20.68 3.59 20.41C3.41 20.23 3.26 20.01 3.16 19.77C3.06 19.54 3 19.28 3 19V5C3 4.73 3.06 4.46 3.16 4.22C3.26 3.98 3.41 3.77 3.59 3.58C3.86 3.31 4.21 3.11 4.6 3.03C4.73 3.01 4.86 3 5 3H19C20.1 3 21 3.9 21 5V19C21 20.1 20.1 21 19 21zM11 9.83L9.59 8.41L6 12L9.59 15.59L11 14.17L8.83 12L11 9.83zM12 19.75C11.59 19.75 11.25 20.09 11.25 20.5S11.59 21.25 12 21.25S12.75 20.91 12.75 20.5S12.41 19.75 12 19.75zM14.41 8.41L13 9.83L15.17 12L13 14.17L14.41 15.59L18 12L14.41 8.41z" />
+  </font>
+</defs>
+</svg>

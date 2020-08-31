@@ -1,0 +1,139 @@
+@font-face {
+  font-family: "test123";
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url("./test123.eot");
+  src: url("./test123.eot?#iefix") format("embedded-opentype"), url("./test123.woff2") format("woff2"), url("./test123.woff") format("woff"), url("./test123.ttf") format("truetype"), url("./test123.svg#test123") format("svg");
+}
+
+.test123 {
+  display: inline-block;
+  font-family: "test123";
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.test123-lg {
+  font-size: 1.33333em;
+  line-height: 0.75em;
+  vertical-align: -0.0667em;
+}
+
+.test123-xs {
+  font-size: 0.75em;
+}
+
+.test123-sm {
+  font-size: 0.875em;
+}
+
+.test123-1x {
+  font-size: 1em;
+}
+
+.test123-2x {
+  font-size: 2em;
+}
+
+.test123-3x {
+  font-size: 3em;
+}
+
+.test123-4x {
+  font-size: 4em;
+}
+
+.test123-5x {
+  font-size: 5em;
+}
+
+.test123-6x {
+  font-size: 6em;
+}
+
+.test123-7x {
+  font-size: 7em;
+}
+
+.test123-8x {
+  font-size: 8em;
+}
+
+.test123-9x {
+  font-size: 9em;
+}
+
+.test123-10x {
+  font-size: 10em;
+}
+
+.test123-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.test123-border {
+  border: solid 0.08em #eee;
+  border-radius: 0.1em;
+  padding: 0.2em 0.25em 0.15em;
+}
+
+.test123-pull-left {
+  float: left;
+}
+
+.test123-pull-right {
+  float: right;
+}
+
+.test123.test123-pull-left {
+  margin-right: 0.3em;
+}
+
+.test123.test123-pull-right {
+  margin-left: 0.3em;
+}
+
+
+.test123-backup-24px::before {
+  content: "\ea01";
+}
+
+.test123-backup_table-24px::before {
+  content: "\ea02";
+}
+
+.test123-camera_enhance-24px::before {
+  content: "\ea03";
+}
+
+.test123-close_fullscreen-24px::before {
+  content: "\ea04";
+}
+
+.test123-disabled_by_default-24px::before {
+  content: "\ea05";
+}
+
+.test123-get_app-24px::before {
+  content: "\ea06";
+}
+
+.test123-hourglass_disabled-24px::before {
+  content: "\ea07";
+}
+
+.test123-input-24px::before {
+  content: "\ea08";
+}
+
+.test123-integration_instructions-24px::before {
+  content: "\ea09";
+}
+
