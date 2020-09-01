@@ -11,11 +11,13 @@ import { ExecutionService } from './services/execution.service';
 import { ContextService } from './services/context-service';
 import { GenerateController } from './controller/generate.controller';
 import { FontService } from './services/font.service';
+import { CollectionController } from './controller/collection.controller';
 
 
 const DIContainer = new Container();
 DIContainer.bind<MainController>(MainController).toSelf().inSingletonScope();
 DIContainer.bind<GenerateController>(GenerateController).toSelf().inSingletonScope();
+DIContainer.bind<CollectionController>(CollectionController).toSelf().inSingletonScope();
 
 DIContainer.bind<FileSystemService>(FileSystemService).toSelf().inSingletonScope();
 DIContainer.bind<LoggerService>(LoggerService).toSelf().inSingletonScope();

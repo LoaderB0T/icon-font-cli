@@ -54,9 +54,9 @@ export class MainController extends Controller {
       .description('Create stuff.')
       .alias('c');
     createCommand
-      .command('collection')
+      .command('collection <collectionName>')
       .description('Create a new collection')
-      .action(() => this._createController.create(collectionName))
+      .action((collectionName: string) => this._collectionController.createCollection(collectionName))
 
 
     await program.parseAsync(process.argv);
