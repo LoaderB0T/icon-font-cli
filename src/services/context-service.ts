@@ -1,9 +1,14 @@
 import { injectable } from 'inversify';
-import { IContextService } from '@awdware/gah-shared';
-import { GahContext } from '@awdware/gah-shared';
+
+export interface GahContext {
+  calledFromCli?: boolean;
+  calledFromHostFolder?: boolean;
+  debug?: boolean;
+}
+
 
 @injectable()
-export class ContextService implements IContextService {
+export class ContextService {
   private readonly _ctx: GahContext;
 
   constructor() {

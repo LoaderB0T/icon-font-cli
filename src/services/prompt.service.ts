@@ -1,14 +1,33 @@
 import { injectable, inject } from 'inversify';
-import { IPromptService, PromptConfig, FuzzyPathPromptConfig, SelectionPromptConfig, IFileSystemService } from '@awdware/gah-shared';
-
 
 import { prompt } from 'enquirer';
 import { FileSystemService } from './file-system.service';
 
+import { FileSystemType } from '../services/file-system.service';
+
+export class PromptConfig {
+  msg: string;
+  default?: any;
+  enabled: () => boolean = () => true;
+  validator?: (val: any) => boolean;
+}
+
+export class FuzzyPathPromptConfig extends PromptConfig {
+  itemType?: FileSystemType = 'any';
+  excludePattern?: string[];
+  exclude?: (val: string) => boolean;
+  optional?: boolean = false;
+}
+
+export class SelectionPromptConfig extends PromptConfig {
+  choices: () => string[];
+}
+
+
 @injectable()
-export class PromptService implements IPromptService {
+export class PromptService {
   @inject(FileSystemService)
-  private readonly _fileSystemService: IFileSystemService;
+  private readonly _fileSystemService: FileSystemService;
 
   constructor() {
 

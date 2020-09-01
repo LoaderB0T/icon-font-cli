@@ -1,19 +1,21 @@
 import { injectable, inject } from 'inversify';
 import fs from 'fs-extra';
 import path_ from 'path';
-import { IFileSystemService, ILoggerService, IExecutionService, FileSystemType } from '@awdware/gah-shared';
 import globby from 'globby';
 import { platform } from 'os';
 import { ExecutionService } from './execution.service';
 import { LoggerService } from './logger.service';
-import {parse, stringify} from 'comment-json';
+import { parse, stringify } from 'comment-json';
+
+
+export type FileSystemType = 'any' | 'directory' | 'file';
 
 @injectable()
-export class FileSystemService implements IFileSystemService {
+export class FileSystemService {
   @inject(ExecutionService)
-  private readonly _executionService: IExecutionService;
+  private readonly _executionService: ExecutionService;
   @inject(LoggerService)
-  private readonly _loggerService: ILoggerService;
+  private readonly _loggerService: LoggerService;
 
   constructor() { }
 

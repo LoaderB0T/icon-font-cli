@@ -2,8 +2,7 @@ import { FontFormat } from './font-format';
 
 export interface FontConfig {
   fontName: string,
-  iconRepoBaseFolder: string,
-  categoryKeys?: string[],
+  collectionKeys?: string[],
   destinationFolder?: string,
   formats?: FontFormat[],
   fixedWidth?: boolean,

@@ -11,15 +11,16 @@ export class FontService {
   @inject(FileSystemService)
   private readonly _fileSystemService: FileSystemService;
 
-  async generate(cfg: FontConfig) {
+  async generate(cfg: FontConfig, icons: string[]) {
 
-    const srcPath = `${cfg.iconRepoBaseFolder}/*.svg`;
+    const files = `./icon-repo/?(${icons.join('|')}).svg`;
+
     const destPath = cfg.destinationFolder ?? './dest';
     this._fileSystemService.ensureDirectory(destPath);
     this._fileSystemService.deleteFilesInDirectory(destPath);
 
     const result = await webfont({
-      files: srcPath,
+      files: files,
       fontName: cfg.fontName,
       template: cfg.template ?? 'scss'
     });

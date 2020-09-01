@@ -6,11 +6,14 @@ import compareVersions from 'compare-versions';
 
 import { Controller } from './controller';
 import { GenerateController } from './generate.controller';
+import { CollectionController } from './collection.controller';
 
 @injectable()
 export class MainController extends Controller {
   @inject(GenerateController)
   private readonly _generateController: GenerateController;
+  @inject(CollectionController)
+  private readonly _collectionController: CollectionController;
   private readonly _version: string;
 
   constructor() {
@@ -46,6 +49,16 @@ export class MainController extends Controller {
       .alias('i')
       .action(async () => this._generateController.generate());
 
+    const createCommand = program
+      .command('create')
+      .description('Create stuff.')
+      .alias('c');
+    createCommand
+      .command('collection')
+      .description('Create a new collection')
+      .action(() => this._createController.create(collectionName))
+
+
     await program.parseAsync(process.argv);
   }
 
@@ -53,7 +66,10 @@ export class MainController extends Controller {
   private async checkForUpdates() {
     const gahData = this._workspaceService.getGlobalData();
     let checkNewVersion = false;
-    if (gahData.lastUpdateCheck) {
+
+    if (gahData.latestVersion && compareVersions(gahData.latestVersion, this._version) === 1) {
+      checkNewVersion = false;
+    } else if (gahData.lastUpdateCheck) {
       const hoursPassed = Math.abs(new Date().getTime() - new Date(gahData.lastUpdateCheck).getTime()) / 36e5;
       if (hoursPassed > 1 || !gahData.latestVersion) {
         checkNewVersion = true;
@@ -63,7 +79,7 @@ export class MainController extends Controller {
     }
 
     if (checkNewVersion) {
-      const success = await this._executionService.execute('yarn info --json @awdware/gah version', false);
+      const success = await this._executionService.execute('yarn info --json icon-font-cli', false);
       if (success) {
         const versionString = this._executionService.executionResult;
         const versionMatcher = /{"type":"inspect","data":"(.*?)"}/;
@@ -79,8 +95,8 @@ export class MainController extends Controller {
 
     if (compareVersions(gahData.latestVersion, this._version) === 1) {
       this._loggerService.warn('  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *');
-      this._loggerService.warn(`  *               ${chalk.green('A new version of gah is available.')}                  *`);
-      this._loggerService.warn(`  *        Please install it via ${chalk.gray('yarn global add @awdware/gah')}         *`);
+      this._loggerService.warn(`  *           ${chalk.green('A new version of icon-font-cli is available.')}            *`);
+      this._loggerService.warn(`  *        Please install it via ${chalk.gray('yarn global add icon-font-cli')}        *`);
       this._loggerService.warn('  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *');
     }
 

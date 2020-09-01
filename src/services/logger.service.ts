@@ -1,5 +1,4 @@
 import { injectable, inject } from 'inversify';
-import { ILoggerService, IContextService } from '@awdware/gah-shared';
 import ora, { Ora } from 'ora';
 import chalk from 'chalk';
 import { ContextService } from './context-service';
@@ -10,12 +9,12 @@ import { ContextService } from './context-service';
  */
 
 @injectable()
-export class LoggerService implements ILoggerService {
+export class LoggerService implements LoggerService {
   private _ora: Ora;
   private _lastOraText: string;
 
   @inject(ContextService)
-  private readonly _contextService: IContextService;
+  private readonly _contextService: ContextService;
 
   private get debugLoggingEnabled(): boolean {
     return this._contextService.getContext().debug ?? false;

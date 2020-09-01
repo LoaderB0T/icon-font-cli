@@ -1,3 +1,9 @@
+
+  $test123-backup: "\ea01";
+
+  $test123-get_app: "\ea02";
+
+
 @font-face {
   font-family: "test123";
   font-style: normal;
@@ -7,8 +13,8 @@
   src: url("./test123.eot?#iefix") format("embedded-opentype"), url("./test123.woff2") format("woff2"), url("./test123.woff") format("woff"), url("./test123.ttf") format("truetype"), url("./test123.svg#test123") format("svg");
 }
 
-.test123 {
-  display: inline-block;
+%test123 {
+display: inline-block;
   font-family: "test123";
   font-weight: 400;
   font-style: normal;
@@ -17,6 +23,10 @@
   line-height: 1;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+}
+
+.test123 {
+  @extend %test123;
 }
 
 .test123-lg {
@@ -101,39 +111,11 @@
 }
 
 
-.test123-backup-24px::before {
-  content: "\ea01";
+.test123-backup::before {
+    content: "\ea01";
 }
 
-.test123-backup_table-24px::before {
-  content: "\ea02";
-}
-
-.test123-camera_enhance-24px::before {
-  content: "\ea03";
-}
-
-.test123-close_fullscreen-24px::before {
-  content: "\ea04";
-}
-
-.test123-disabled_by_default-24px::before {
-  content: "\ea05";
-}
-
-.test123-get_app-24px::before {
-  content: "\ea06";
-}
-
-.test123-hourglass_disabled-24px::before {
-  content: "\ea07";
-}
-
-.test123-input-24px::before {
-  content: "\ea08";
-}
-
-.test123-integration_instructions-24px::before {
-  content: "\ea09";
+.test123-get_app::before {
+    content: "\ea02";
 }
 
