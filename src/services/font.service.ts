@@ -13,17 +13,25 @@ export class FontService {
 
   async generate(cfg: FontConfig, icons: string[]) {
 
-    const files = `./icon-repo/?(${icons.join('|')}).svg`;
+    const files = `./icon-repo/**/?(${icons.join('|')}).svg`;
 
     const destPath = cfg.destinationFolder ?? './dest';
     this._fileSystemService.ensureDirectory(destPath);
     this._fileSystemService.deleteFilesInDirectory(destPath);
 
-    const result = await webfont({
-      files: files,
-      fontName: cfg.fontName,
-      template: cfg.template ?? 'scss'
-    });
+    let result: any;
+    try {
+      result = await webfont({
+        files: files,
+        fontName: cfg.fontName,
+        template: cfg.template ?? 'scss',
+        normalize: true,
+        fixedWidth: true,
+        centerHorizontally: true
+      });
+    } catch (error) {
+      console.error(error);
+    }
 
     let destTemplate: any = null;
 
