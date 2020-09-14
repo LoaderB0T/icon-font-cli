@@ -24,7 +24,7 @@ export class FontService {
       result = await webfont({
         files: files,
         fontName: cfg.fontName,
-        template: cfg.template ?? 'scss',
+        template: cfg.template ?? this._fileSystemService.join(__dirname, '../../templates/', 'scss.njk'),
         normalize: true,
         fixedWidth: true,
         centerHorizontally: true
@@ -50,7 +50,7 @@ export class FontService {
       } else {
         destTemplate = path.join(
           destTemplate,
-          path.basename(result.config.template).replace('.njk', '')
+          `${cfg.fontName}.${path.basename(result.config.template).replace('.njk', '')}`
         );
       }
     }
