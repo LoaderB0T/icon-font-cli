@@ -44,7 +44,7 @@ export class MainController extends Controller {
     program
       .command('generate')
       .description('Generates the font based on a configuration file.')
-      .alias('i')
+      .alias('g')
       .action(async () => this._generateController.generate());
 
     const createCommand = program.command('create').description('Create stuff.').alias('c');

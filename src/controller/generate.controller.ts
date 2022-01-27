@@ -7,7 +7,7 @@ import { Controller } from './controller';
 @injectable()
 export class GenerateController extends Controller {
   public async generate() {
-    const cfgName = 'cfg';
+    const cfgName = 'graph';
 
     const cfg = this._fileSystemService.parseFile<FontConfig>(`./cfg/${cfgName}.json`);
     const allCollectionFiles = this._fileSystemService.getFilesFromGlob('./collections/*.json');

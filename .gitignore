@@ -2,3 +2,7 @@ node_modules
 lib
 .vscode/launch.json
 README.md
+icon-repo
+collections
+cfg
+output
