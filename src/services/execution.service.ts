@@ -7,7 +7,7 @@ export class ExecutionService {
   public executionErrorResult: string = '';
 
   public execute(cmd: string, outPut: boolean, outPutCallback?: (out: string) => string, cwd?: string): Promise<boolean> {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       this.executionResult = '';
       this.executionErrorResult = '';
       const childProcess = exec(cmd, { cwd });
@@ -17,7 +17,9 @@ export class ExecutionService {
         if (outPut) {
           if (outPutCallback) {
             const newOut = outPutCallback(buffer);
-            if (newOut) { console.log(newOut); }
+            if (newOut) {
+              console.log(newOut);
+            }
           } else {
             console.log(buffer);
           }
@@ -29,7 +31,9 @@ export class ExecutionService {
         if (outPut) {
           if (outPutCallback) {
             const newOut = outPutCallback(buffer);
-            if (newOut) { console.log(newOut); }
+            if (newOut) {
+              console.log(newOut);
+            }
           } else {
             console.error(buffer);
           }
@@ -41,8 +45,7 @@ export class ExecutionService {
           setTimeout(() => {
             resolve(false);
           }, 100);
-        }
-        else {
+        } else {
           setTimeout(() => {
             resolve(true);
           }, 100);
@@ -51,17 +54,15 @@ export class ExecutionService {
     });
   }
 
-
   public executeAndForget(executeable: string, options: string[], outPut: boolean, cwd?: string): Promise<boolean> {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       const childProcess = spawn(executeable, options, { cwd, shell: true, stdio: outPut ? 'inherit' : 'ignore' });
       childProcess.on('exit', code => {
         if (code !== 0) {
           setTimeout(() => {
             resolve(false);
           }, 10);
-        }
-        else {
+        } else {
           setTimeout(() => {
             resolve(true);
           }, 10);

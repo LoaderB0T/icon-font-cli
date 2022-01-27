@@ -1,12 +1,11 @@
 import { injectable, inject } from 'inversify';
 import fs from 'fs-extra';
 import path_ from 'path';
-import globby from 'globby';
+import * as globby from 'globby';
 import { platform } from 'os';
 import { ExecutionService } from './execution.service';
 import { LoggerService } from './logger.service';
 import { parse, stringify } from 'comment-json';
-
 
 export type FileSystemType = 'any' | 'directory' | 'file';
 
@@ -17,7 +16,7 @@ export class FileSystemService {
   @inject(LoggerService)
   private readonly _loggerService: LoggerService;
 
-  constructor() { }
+  constructor() {}
 
   fileExists(path: string): boolean {
     return fs.existsSync(path);
@@ -57,14 +56,17 @@ export class FileSystemService {
   }
 
   ensureRelativePath(path: string, relativeFrom?: string, dontCheck = false) {
-    if (!dontCheck && !this.directoryExists(path)) { throw new Error(`Could not find path ${path}`); }
+    if (!dontCheck && !this.directoryExists(path)) {
+      throw new Error(`Could not find path ${path}`);
+    }
     relativeFrom = relativeFrom ?? process.cwd();
-    if (!dontCheck && !this.directoryExists(relativeFrom)) { throw new Error(`Could not find path ${relativeFrom}`); }
+    if (!dontCheck && !this.directoryExists(relativeFrom)) {
+      throw new Error(`Could not find path ${relativeFrom}`);
+    }
 
     path = path_.relative(relativeFrom, path).replace(/\\/g, '/');
     return path;
   }
-
 
   directoryExists(path: string): boolean {
     return fs.existsSync(path);
@@ -79,7 +81,9 @@ export class FileSystemService {
   }
 
   deleteFile(path: string): void {
-    if (this.fileExists(path)) { fs.unlinkSync(path); }
+    if (this.fileExists(path)) {
+      fs.unlinkSync(path);
+    }
   }
 
   deleteFilesInDirectory(path: string): void {
@@ -87,7 +91,9 @@ export class FileSystemService {
   }
 
   copyFilesInDirectory(fromDirectory: string, toDirectory: string) {
-    if (!this.directoryExists(fromDirectory)) { throw new Error('Directory to copy from not found'); }
+    if (!this.directoryExists(fromDirectory)) {
+      throw new Error('Directory to copy from not found');
+    }
     this.ensureDirectory(toDirectory);
     fs.copySync(fromDirectory, toDirectory, { recursive: true });
   }
@@ -99,8 +105,12 @@ export class FileSystemService {
       ignore_.push('/node_modules/**');
       ignore_.push('**/.gah/**');
     }
-    if (ignore && typeof (ignore) === 'string') { ignore_.push(ignore); }
-    if (ignore && Array.isArray(ignore)) { ignore.forEach(x => ignore_.push(x)); }
+    if (ignore && typeof ignore === 'string') {
+      ignore_.push(ignore);
+    }
+    if (ignore && Array.isArray(ignore)) {
+      ignore.forEach(x => ignore_.push(x));
+    }
 
     const onlyFiles = type && type === 'file';
     const onlyDirectories = type && type === 'directory';
@@ -116,7 +126,9 @@ export class FileSystemService {
     if (platform() === 'win32') {
       const cmd = `mklink /j "${linkPath}" "${realPath}"`;
       await this._executionService.execute(cmd, false).then(success => {
-        if (!success) { throw new Error(this._executionService.executionErrorResult); }
+        if (!success) {
+          throw new Error(this._executionService.executionErrorResult);
+        }
       });
     } else {
       fs.ensureSymlink(realPath, linkPath, 'dir');
@@ -127,7 +139,9 @@ export class FileSystemService {
     if (platform() === 'win32') {
       const cmd = `mklink /h "${linkPath}" "${realPath}"`;
       await this._executionService.execute(cmd, false).then(success => {
-        if (!success) { throw new Error(this._executionService.executionErrorResult); }
+        if (!success) {
+          throw new Error(this._executionService.executionErrorResult);
+        }
       });
     } else {
       await fs.ensureSymlink(realPath, linkPath, 'file');
@@ -156,7 +170,9 @@ export class FileSystemService {
   }
 
   ensureAbsolutePath(path: string) {
-    if (path_.isAbsolute(path)) { return path.replace(/\\/g, '/'); }
+    if (path_.isAbsolute(path)) {
+      return path.replace(/\\/g, '/');
+    }
     return path_.resolve(path).replace(/\\/g, '/');
   }
 }

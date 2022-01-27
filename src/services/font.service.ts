@@ -7,12 +7,10 @@ import { FileSystemService } from './file-system.service';
 
 @injectable()
 export class FontService {
-
   @inject(FileSystemService)
   private readonly _fileSystemService: FileSystemService;
 
   async generate(cfg: FontConfig, icons: string[]) {
-
     const files = `./icon-repo/**/?(${icons.join('|')}).svg`;
 
     const destPath = cfg.destinationFolder ?? './dest';
@@ -43,22 +41,14 @@ export class FontService {
       }
 
       if (result.usedBuildInTemplate) {
-        destTemplate = path.join(
-          destTemplate,
-          `${result.config.fontName}.${result.config.template}`
-        );
+        destTemplate = path.join(destTemplate, `${result.config.fontName}.${result.config.template}`);
       } else {
-        destTemplate = path.join(
-          destTemplate,
-          `${cfg.fontName}.${path.basename(result.config.template).replace('.njk', '')}`
-        );
+        destTemplate = path.join(destTemplate, `${cfg.fontName}.${path.basename(result.config.template).replace('.njk', '')}`);
       }
     }
 
     Object.keys(result).map(type => {
-      if (type === 'config' ||
-        type === 'usedBuildInTemplate' ||
-        type === 'glyphsData') {
+      if (type === 'config' || type === 'usedBuildInTemplate' || type === 'glyphsData') {
         return null;
       }
 

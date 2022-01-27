@@ -37,11 +37,9 @@ export class MainController extends Controller {
     });
     console.log();
 
-    program
-      .version(this._version);
+    program.version(this._version);
 
-    program
-      .option('--debug', 'Enables verbose debug logging');
+    program.option('--debug', 'Enables verbose debug logging');
 
     program
       .command('generate')
@@ -49,19 +47,14 @@ export class MainController extends Controller {
       .alias('i')
       .action(async () => this._generateController.generate());
 
-    const createCommand = program
-      .command('create')
-      .description('Create stuff.')
-      .alias('c');
+    const createCommand = program.command('create').description('Create stuff.').alias('c');
     createCommand
       .command('collection <collectionName>')
       .description('Create a new collection')
-      .action((collectionName: string) => this._collectionController.createCollection(collectionName))
-
+      .action((collectionName: string) => this._collectionController.createCollection(collectionName));
 
     await program.parseAsync(process.argv);
   }
-
 
   private async checkForUpdates() {
     const gahData = this._workspaceService.getGlobalData();
@@ -102,5 +95,4 @@ export class MainController extends Controller {
 
     this._workspaceService.saveGlobalData(gahData);
   }
-
 }

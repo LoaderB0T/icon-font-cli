@@ -13,7 +13,6 @@ import { GenerateController } from './controller/generate.controller';
 import { FontService } from './services/font.service';
 import { CollectionController } from './controller/collection.controller';
 
-
 const DIContainer = new Container();
 DIContainer.bind<MainController>(MainController).toSelf().inSingletonScope();
 DIContainer.bind<GenerateController>(GenerateController).toSelf().inSingletonScope();
@@ -27,6 +26,5 @@ DIContainer.bind<PromptService>(PromptService).toSelf().inSingletonScope();
 DIContainer.bind<WorkspaceService>(WorkspaceService).toSelf().inSingletonScope();
 DIContainer.bind<ExecutionService>(ExecutionService).toSelf().inSingletonScope();
 DIContainer.bind<FontService>(FontService).toSelf().inSingletonScope();
-
 
 export default DIContainer;

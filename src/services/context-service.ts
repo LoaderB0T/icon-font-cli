@@ -6,7 +6,6 @@ export interface GahContext {
   debug?: boolean;
 }
 
-
 @injectable()
 export class ContextService {
   private readonly _ctx: GahContext;

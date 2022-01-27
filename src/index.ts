@@ -8,7 +8,7 @@ import path from 'path';
 import { ContextService } from './services/context-service';
 
 const pjson = require(path.join(__dirname, '../package.json'));
-console.log(chalk.bold(chalk.whiteBright(`gah v${pjson.version}`)));
+console.log(chalk.bold(chalk.whiteBright(`icon-font-cli v${pjson.version}`)));
 
 (async () => {
   DIContainer.load();
@@ -18,7 +18,6 @@ console.log(chalk.bold(chalk.whiteBright(`gah v${pjson.version}`)));
 
   // Call main method
   await mainController.main();
-
 })().catch(err => {
   console.log();
   console.error(chalk.red(' ■ ') + err);
